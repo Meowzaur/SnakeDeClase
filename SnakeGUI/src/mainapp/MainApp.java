@@ -1,4 +1,4 @@
-package snake;
+package mainapp;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -9,6 +9,11 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+
+import models.TableroJuego;
+import ui.ControlTeclado;
+import ui.MyButtonListener;
+import ui.MySnakeFrame;
 
 public class MainApp {
 

@@ -1,10 +1,12 @@
-package snake;
+package models;
 
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 
 import javax.swing.JPanel;
+
+import ui.MySnakeFrame;
 
 /**
  * Necesitamos una clase JPanel que represente nuestro tablero y que a la hora de pintarse

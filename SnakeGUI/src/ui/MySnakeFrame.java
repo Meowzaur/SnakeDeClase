@@ -1,6 +1,8 @@
-package snake;
+package ui;
 
 import javax.swing.JFrame;
+
+import models.Serpiente;
 
 /**
  * Clase MySnakeFrame

@@ -1,11 +1,8 @@
-package snake;
+package models;
 
-import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
-
-import javax.swing.JPanel;
 
 public class Serpiente {
     //Constantes. No hay
@@ -25,7 +22,7 @@ public class Serpiente {
     //Creación
     public Serpiente(){
     	//creamos la lista de cuadrados.
-        listaCuadrados = new ArrayList();
+        listaCuadrados = new ArrayList<Cuadrado>();
 
         //añadimos el primero de los cuadrados...
         listaCuadrados.add(new Cuadrado(60,60,20,(int)(Math.random()*16000000)));
