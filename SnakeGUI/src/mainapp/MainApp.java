@@ -120,10 +120,10 @@ public class MainApp {
 					// hemos crecido... actualizamos puntos.
 					puntosNum.setText(Integer.toString(frame.getSerpiente().getPuntos()));
 				} else { // a los 200 y 400 ms nos movemos...
-					contador = contador + 10;
+					contador++;
 					frame.tocaMoverse();
 				}
-//				frame.comprobarEstado(tablero.getHeight(), tablero.getWidth()); // comprobamos si hemos muerto o no.
+				frame.comprobarEstado(tablero.getHeight(), tablero.getWidth()); // comprobamos si hemos muerto o no.
 
 			} else { // Cada vez que no hay que moverse o crecer, simplemente contamos...
 				contador++;
