@@ -14,6 +14,7 @@ import models.TableroJuego;
 import ui.ControlTeclado;
 import ui.MyButtonListener;
 import ui.MySnakeFrame;
+import ui.VentanaConfigSize;
 import ui.VentanaDificultad;
 
 public class MainApp {
@@ -40,6 +41,7 @@ public class MainApp {
 		// asignamos el tamaño a nuestra ventana, y hacemos que se cierre cuando nos
 		// pulsan
 		// la X de cerrar la ventana
+//		frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
 		frame.setSize(600, 600);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -108,6 +110,9 @@ public class MainApp {
 		frame.add(mainPanel);
 
 		frame.setVisible(true); // activamos la ventana principal para que sea "pintable"
+		
+		// Ventana de selector de tama�o
+		new VentanaConfigSize();
 
 		// Ventana de dificultad
 		new VentanaDificultad();
@@ -117,6 +122,9 @@ public class MainApp {
 
 		while (true) { // por siempre jamás (hasta que nos cierren la ventana) estamos controlando el
 						// juego.
+			
+			frame.setSize(VentanaConfigSize.getX()+20,VentanaConfigSize.getY()+80);
+			tablero.setSize(VentanaConfigSize.getX(),VentanaConfigSize.getY());
 			
 			switch (VentanaDificultad.getDificultad()) {
 			case 1:
