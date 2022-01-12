@@ -14,13 +14,15 @@ import models.TableroJuego;
 import ui.ControlTeclado;
 import ui.MyButtonListener;
 import ui.MySnakeFrame;
+import ui.VentanaDificultad;
 
 public class MainApp {
 
 	public static void main(String[] args) throws InterruptedException {
 		// TODO code application logic here
 
-		int contador;
+		double contador;
+		double velocidad = 1;
 		MySnakeFrame frame;
 		JPanel mainPanel;
 		TableroJuego tablero;
@@ -30,6 +32,7 @@ public class MainApp {
 		JButton start;
 		JButton pause;
 		ControlTeclado miControlador;
+		
 
 		// 1. Crear el frame.
 		frame = new MySnakeFrame();
@@ -106,11 +109,29 @@ public class MainApp {
 
 		frame.setVisible(true); // activamos la ventana principal para que sea "pintable"
 
+		// Ventana de dificultad
+		new VentanaDificultad();
+
 		contador = 0; // nuestro control de los pasos del tiempo. Cada vez que contador cuenta un
 						// paso, pasan 10ms
 
 		while (true) { // por siempre jamás (hasta que nos cierren la ventana) estamos controlando el
 						// juego.
+			
+			switch (VentanaDificultad.getDificultad()) {
+			case 1:
+				velocidad = 1;
+				break;
+			case 2:
+				velocidad = 10;
+				break;
+			case 3:
+				velocidad = 15;
+				break;
+			case 4:
+				velocidad = 20;
+				break;
+			}
 
 			// actualizamos el estado del juego
 			if (contador % 20 == 0) { // cada 200ms nos movemos o crecemos...
@@ -120,7 +141,7 @@ public class MainApp {
 					// hemos crecido... actualizamos puntos.
 					puntosNum.setText(Integer.toString(frame.getSerpiente().getPuntos()));
 				} else { // a los 200 y 400 ms nos movemos...
-					contador++;
+					contador = contador + velocidad;
 					frame.tocaMoverse();
 				}
 				frame.comprobarEstado(tablero.getHeight(), tablero.getWidth()); // comprobamos si hemos muerto o no.
@@ -142,6 +163,10 @@ public class MainApp {
 			Thread.sleep(10);
 
 		}
+	}
+	
+	public void ejecutarMySnakeFrame() {
+		
 	}
 
 }
