@@ -130,6 +130,8 @@ public class MainApp {
 			frame.setSize(VentanaConfigSize.getX()+20,VentanaConfigSize.getY()+80);
 			tablero.setSize(VentanaConfigSize.getX(),VentanaConfigSize.getY());
 			
+			deParedAPared();
+			
 			switch (VentanaDificultad.getDificultad()) {
 			case 1:
 				velocidad = 1;
@@ -158,7 +160,7 @@ public class MainApp {
 					contador = contador + velocidad;
 					frame.tocaMoverse();
 				}
-				frame.comprobarEstado(tablero.getHeight(), tablero.getWidth()); // comprobamos si hemos muerto o no.
+				frame.comprobarEstado(); // comprobamos si hemos muerto o no.
 
 			} else { // Cada vez que no hay que moverse o crecer, simplemente contamos...
 				contador++;
@@ -176,6 +178,18 @@ public class MainApp {
 			// Esperamos para dar tiempo al thread de repintado a pintar.
 			Thread.sleep(10);
 
+		}
+	}
+	
+	public static void deParedAPared() {
+		if (Serpiente.listaCuadrados.get(0).getX() < 0) {
+			Serpiente.listaCuadrados.get(0).setPosX(VentanaConfigSize.getX());
+		} else if (Serpiente.listaCuadrados.get(0).getX() > VentanaConfigSize.getX()) {
+			Serpiente.listaCuadrados.get(0).setPosX(0);
+		} else if (Serpiente.listaCuadrados.get(0).getY() < 0) {
+			Serpiente.listaCuadrados.get(0).setPosY(VentanaConfigSize.getY());
+		} else if (Serpiente.listaCuadrados.get(0).getY() > VentanaConfigSize.getY()) {
+			Serpiente.listaCuadrados.get(0).setPosY(0);
 		}
 	}
 

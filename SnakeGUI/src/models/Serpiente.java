@@ -75,10 +75,10 @@ public class Serpiente {
 
 
     //la serpiente se muere porque se toca a si misma o porque se ha salido del tablero
-    public boolean estaMuerta(int iAlto, int iAncho) {
+    public boolean estaMuerta() {
     	boolean resultado;
     	
-    	resultado = (seEstaTocandoEllaMisma() || seHaSalido(iAlto, iAncho));
+    	resultado = (seEstaTocandoEllaMisma());
     	
         return resultado;
     }

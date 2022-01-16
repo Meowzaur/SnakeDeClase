@@ -62,7 +62,16 @@ public class Cuadrado {
     public int getY(){
         return posY;
     }
-    public int getLado() {return lado;}
+    
+    public void setPosX(int posX) {
+		this.posX = posX;
+	}
+
+	public void setPosY(int posY) {
+		this.posY = posY;
+	}
+
+	public int getLado() {return lado;}
     
     public int getColor() {
     	return colorCuadrado;
