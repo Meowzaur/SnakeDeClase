@@ -10,7 +10,7 @@ public class Serpiente {
     //******   Atributos. Estado
 
     //Cuerpo de la serpiente, es una lista de cuadrados
-    private ArrayList<Cuadrado> listaCuadrados;
+    public static ArrayList<Cuadrado> listaCuadrados;
 
     //Dirección inicial del movimiento
     private int iDireccion;
@@ -32,7 +32,8 @@ public class Serpiente {
 
     }
 
-    //Moverse. Una serpiente sabe moverse
+
+	//Moverse. Una serpiente sabe moverse
     public void moverse(){
 	
         Cuadrado nuevaCabeza;

@@ -2,6 +2,7 @@ package ui;
 
 import javax.swing.JFrame;
 
+import models.Manzana;
 import models.Serpiente;
 
 /**
@@ -41,9 +42,12 @@ public class MySnakeFrame extends JFrame {
 	private boolean mostrarFinal;
 	private boolean mostrado;
 	
+	public static Manzana manzana;
+	
 	
 	//**** Comportamientos
-	
+
+
 	//Constructor
 	public MySnakeFrame() {
 		snake = new Serpiente();
@@ -51,12 +55,17 @@ public class MySnakeFrame extends JFrame {
 		mostrarFinal = false;
 		mostrado = false;
 		pausado = false;
+		manzana = new Manzana(200,100,20);
 	}
 	
 	
 	//si alguien necesita nuestra serpiente, se la proporcionamos.
 	public Serpiente getSerpiente() {
 		return snake;
+	}
+	
+	public Manzana getManzana() {
+		return manzana;
 	}
 	
 	

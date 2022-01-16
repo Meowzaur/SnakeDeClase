@@ -10,6 +10,8 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
+import models.Manzana;
+import models.Serpiente;
 import models.TableroJuego;
 import ui.ControlTeclado;
 import ui.MyButtonListener;
@@ -119,6 +121,8 @@ public class MainApp {
 
 		contador = 0; // nuestro control de los pasos del tiempo. Cada vez que contador cuenta un
 						// paso, pasan 10ms
+		
+		new Manzana(100, 100, 20);
 
 		while (true) { // por siempre jamás (hasta que nos cierren la ventana) estamos controlando el
 						// juego.
@@ -143,11 +147,13 @@ public class MainApp {
 
 			// actualizamos el estado del juego
 			if (contador % 20 == 0) { // cada 200ms nos movemos o crecemos...
-				if (contador == 60) { // Cada 600ms crecemos y reseteamos el contador
+				if ((Serpiente.listaCuadrados.get(0).getX() == Manzana.getPosX()) && (Serpiente.listaCuadrados.get(0).getY() == Manzana.getPosY())) { // Cada 600ms crecemos y reseteamos el contador
 					contador = 0;
 					frame.tocaCrecer();
 					// hemos crecido... actualizamos puntos.
 					puntosNum.setText(Integer.toString(frame.getSerpiente().getPuntos()));
+					MySnakeFrame.manzana.setPosX((int) ((Math.random()*(VentanaConfigSize.getX())/20))*20);
+					MySnakeFrame.manzana.setPosY((int) ((Math.random()*(VentanaConfigSize.getY())/20))*20);
 				} else { // a los 200 y 400 ms nos movemos...
 					contador = contador + velocidad;
 					frame.tocaMoverse();
@@ -171,10 +177,6 @@ public class MainApp {
 			Thread.sleep(10);
 
 		}
-	}
-	
-	public void ejecutarMySnakeFrame() {
-		
 	}
 
 }
